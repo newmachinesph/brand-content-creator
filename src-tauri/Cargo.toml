@@ -1,0 +1,33 @@
+[package]
+name = "brand-content-creator"
+version = "0.1.0"
+edition = "2021"
+description = "Brand Content Creator"
+authors = [""]
+license = ""
+repository = ""
+default-run = "brand-content-creator"
+
+[lib]
+name = "brand_content_creator_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "brand-content-creator"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["process", "io-util", "fs"] }
+reqwest = { version = "0.12", features = ["rustls-tls"], default-features = false }
+base64 = "0.22"
+dotenvy = "0.15"
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-shell = "2"

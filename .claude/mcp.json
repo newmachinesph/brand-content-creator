@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "brand-brain": {
+      "command": "bun",
+      "args": ["run", "scripts/brand-brain-mcp.ts"]
+    }
+  }
+}
